@@ -2,7 +2,7 @@ class WrappersController < JSONAPI::ResourceController
   def create
   	if params[:page].present?
   	  @wrapper = GrabbingService.new(params).perform
-  	  render json: @wrapper
+  	  render json: @wrapper, status: 200 if @wrapper.persisted?
   	else
   	  render plain: 'Please provide at least one page'
   	end
