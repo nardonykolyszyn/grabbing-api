@@ -1,24 +1,22 @@
-# README
+# GrabbingAPI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+----
+## usage
+  * Grabbing a page   
+Payload: **POST** `{
+"page": "http://nardonykolyszyn.com.ve"
+}`  
 
-Things you may want to cover:
+*Automatically it will return the object with tags and their texts.*
 
-* Ruby version
 
-* System dependencies
+  * Index previous links used.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  **GET** `
+    "page": "/links"
+     `
+    *This will returns all links previously used*
+----
+## thanks
+*Nardo Nykolyszyn*
+**Software Engineer**
