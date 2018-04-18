@@ -3,6 +3,7 @@
 ----
 ## usage
   * Grabbing a page   
+Url: **'/wrappers'**  
 Payload: **POST** `{
 "page": "http://nardonykolyszyn.com.ve"
 }`  
@@ -12,11 +13,11 @@ Payload: **POST** `{
 
   * Index previous links used.
 
-  **GET** `
-    "page": "/links"
-     `
-    *This will returns all links previously used*
+  **GET** `/links`  
+  
+  *This will returns all links previous used*
+  
 ----
-## thanks
-*Nardo Nykolyszyn*
+## Author
+*Nardo Nykolyszyn*  
 **Software Engineer**
