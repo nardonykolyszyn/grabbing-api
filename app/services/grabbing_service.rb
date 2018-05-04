@@ -2,7 +2,7 @@ class GrabbingService
   def initialize(params)
     @page_url = params[:page]
     # You coud add more tags into this Array.
-    @tags = %w{h1 h2 h3}
+    @tags = %w{h1 h2 h3 h4 p span b li}
     @payload = Hash.new{|hsh,key| hsh[key] = [] }
   end
 
