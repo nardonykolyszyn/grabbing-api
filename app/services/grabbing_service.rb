@@ -17,8 +17,8 @@ class GrabbingService
 
   def create_wrapper
     @wrapper = Wrapper.new(url: @page_url, tags: @payload)
-    # Is object is saved and persisted return the object itself.
-    # Else return the object errors as json.
+    # If object is saved and persisted then return the object itself.
+    # Else return the object errors as json format.
     @wrapper.save ? @wrapper : @wrapper.errors.to_json 
   end
   
