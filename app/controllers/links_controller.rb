@@ -4,7 +4,7 @@ class LinksController < ApplicationController
     if @links.any?
       render json: @links, status: 200
     else
-      render plain: 'There are not any link provided yet'
+      render json: { error: 'There are not any link provided yet' }
     end
   end
 end
