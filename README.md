@@ -5,7 +5,7 @@
   * Grabbing a page   
 Url: **'/wrappers'**  
 Payload: **POST** `{
-"page": "http://nardonykolyszyn.com.ve"
+"page": "http://devpolish.github.io"
 }`  
 
 *Automatically it will return the object with tags and their texts.*
