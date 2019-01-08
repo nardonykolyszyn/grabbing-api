@@ -1,29 +1,39 @@
+# frozen_string_literal: true
+
+require 'singleton'
+
 class GrabbingService
-  def initialize(params)
-    @page_url = params[:page]
-    # You coud add more tags into this Array.
-    @tags = %w{h1 h2 h3 h4 p span b li}
-    @payload = Hash.new{|hsh,key| hsh[key] = [] }
-  end
+  include Singleton
+
+  TAGS = %w[h1 h2 h3 h4 h5 p span b li strong].freeze
 
   def get_tags
     @page = HTTParty.get(@page_url)
     @dom = Nokogiri::HTML(@page)
     # Find tags and push them into the Payload.
-    @tags.each do |tag|
+    build_payload
+    TAGS.each do |tag|
       @dom.xpath("//#{tag}").map { |obj| @payload[tag].push(obj.text) }
     end
+    @payload
   end
 
   def create_wrapper
     @wrapper = Wrapper.new(url: @page_url, tags: @payload)
     # If object is saved and persisted then return the object itself.
     # Else return the object errors as json format.
-    @wrapper.save ? @wrapper : @wrapper.errors.to_json 
+    @wrapper.save ? @wrapper : @wrapper.errors.to_json
   end
-  
-  def perform
+
+  def perform(page_url)
+    @page_url = page_url
     get_tags
     create_wrapper
+  end
+
+  private
+
+  def build_payload
+    @payload ||= Hash.new { |h, k| h[k] = [] }
   end
 end

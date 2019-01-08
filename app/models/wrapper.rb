@@ -1,3 +1,3 @@
 class Wrapper < ApplicationRecord
-  validates_presence_of :tags
+  # validates_presence_of :tags
 end
