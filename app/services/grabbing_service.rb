@@ -13,7 +13,7 @@ class GrabbingService
     # Find tags and push them into the Payload.
     build_payload
     TAGS.each do |tag|
-      @dom.xpath("//#{tag}").map { |obj| @payload[tag].push(obj.text) }
+      @dom.xpath("//#{tag}").map { |obj| @payload[tag].push(obj.text.strip) }
     end
     @payload
   end
