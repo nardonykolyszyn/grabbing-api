@@ -13,7 +13,7 @@ Payload: **POST** `{
 
   * Index previous links used.
 
-  **GET** `/links`  
+  **GET** `/searches`  
   
   *This will returns all links previous used*
   
